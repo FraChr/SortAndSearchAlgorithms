@@ -25,16 +25,5 @@ public void Sort(List<int> data)
 
             if (swapped == false) break;
         }
-        /*PrintResults();*/
     }
-
-    /*private void PrintResults()
-    {
-        int i;
-        for (i = 0; i < n; i++)
-        {
-            Console.WriteLine(_data[i] + " ");
-        }
-        Console.WriteLine();
-    }*/
 }

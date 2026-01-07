@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SortAndSearch.Data;
 using SortAndSearch.Sort.BubbleSort;
+using SortAndSearch.Sort.QuickSort;
 using SortAndSearch.Timer;
 
 namespace SortAndSearch;
@@ -11,9 +12,11 @@ class Program
     {
         var services = new ServiceCollection();
 
-        services.AddSingleton(new ListConfig { Size = 50, MinValue = 1, MaxValue = 1000 });
+        services.AddSingleton(new ListConfig { Size = 100000, MinValue = 1, MaxValue = 1000 });
         services.AddSingleton<GenerateList>();
         services.AddSingleton<ISortAlgorithm, BubbleSort>();
+        services.AddSingleton<ISortAlgorithm, QuickSort>();
+        
         services.AddSingleton<ISortTimer, SortTimer>();
         services.AddSingleton<App>();
         
