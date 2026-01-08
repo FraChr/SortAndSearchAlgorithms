@@ -1,5 +1,6 @@
 ﻿using SortAndSearch.Data;
 using SortAndSearch.Timer;
+using static SortAndSearch.Utility.Utility;
 
 namespace SortAndSearch;
 
@@ -19,14 +20,29 @@ public class App
     public void Run()
     {
         var data = _generateList.Generate();
-        
-        foreach (var sort in _sortAlgorithms)
+
+        try
         {
-            var copy = new List<int>(data);
-            _timer.StartTimer();
-            sort.Sort(copy);
-            _timer.StopTimer();
-            Console.WriteLine($"{sort.GetType().Name} sorted in {_timer.Elapsed.Microseconds} Microseconds");
+            foreach (var sort in _sortAlgorithms)
+            {
+                var copy = new List<int>(data);
+                _timer.StartTimer();
+                sort.Sort(copy);
+                _timer.StopTimer();
+                
+                /*Console.WriteLine($"{sort.GetType().Name} sorted in {_timer.Elapsed.Microseconds} Microseconds");*/
+                
+                Console.WriteLine(IsSorted(copy)
+                    ? $"{sort.GetType().Name} sorted in {_timer.Elapsed.Microseconds} Microseconds"
+                    : $"{sort.GetType().Name} not sorted");
+                
+            }
         }
+        catch (Exception e)
+        {
+            Console.Error.WriteLine($"Error: {e.Message}");
+            Environment.Exit(-1);
+        }
+        
     }
 }

@@ -7,7 +7,7 @@ public void Sort(List<int> data)
     {
         var n = data.Count;
         
-        int i, j, temp;
+        int i, j;
         bool swapped;
         for (i = 0; i < n - 1; i++)
         {
@@ -16,13 +16,11 @@ public void Sort(List<int> data)
             {
                 if (data[j] > data[j + 1])
                 {
-                    temp = data[j];
-                    data[j] = data[j + 1];
-                    data[j + 1] = temp;
+                    (data[j], data[j + 1]) = (data[j + 1], data[j]);
                     swapped = true;
                 }
             }
-
+            
             if (swapped == false) break;
         }
     }

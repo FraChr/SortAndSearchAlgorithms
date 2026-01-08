@@ -1,0 +1,7 @@
+﻿{
+  "ListConfig": {
+    "Size": 100000,
+    "MinValue": 1,
+    "MaxValue": 500
+  }
+}

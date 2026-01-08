@@ -1,13 +1,15 @@
-﻿namespace SortAndSearch.Data;
+﻿using Microsoft.Extensions.Options;
+
+namespace SortAndSearch.Data;
 
 public class GenerateList
 {
-    private readonly Random _random = new Random();
+    private readonly Random _random = new();
     private readonly ListConfig _config;
 
-    public GenerateList(ListConfig config)
+    public GenerateList(IOptions<ListConfig> config)
     {
-        _config = config;
+        _config = config.Value;
     }
 
     public List<int> Generate()
