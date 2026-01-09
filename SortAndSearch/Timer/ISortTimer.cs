@@ -2,7 +2,8 @@
 
 public interface ISortTimer
 {
+    TimeSpan Elapsed { get; }
     void StartTimer();
     void StopTimer();
-    TimeSpan Elapsed { get; }
+    public string ShowTime();
 }

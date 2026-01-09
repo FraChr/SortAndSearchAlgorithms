@@ -19,7 +19,10 @@ public class App
 
     public void Run()
     {
+        _timer.StartTimer();
         var data = _generateList.Generate();
+        _timer.StopTimer();
+        Console.WriteLine($"Time to Generate list: {_timer.Elapsed.Microseconds}");
 
         try
         {
@@ -30,12 +33,9 @@ public class App
                 sort.Sort(copy);
                 _timer.StopTimer();
                 
-                /*Console.WriteLine($"{sort.GetType().Name} sorted in {_timer.Elapsed.Microseconds} Microseconds");*/
-                
                 Console.WriteLine(IsSorted(copy)
-                    ? $"{sort.GetType().Name} sorted in {_timer.Elapsed.Microseconds} Microseconds"
+                    ? $"{sort.GetType().Name} sorted in {_timer.ShowTime()}"
                     : $"{sort.GetType().Name} not sorted");
-                
             }
         }
         catch (Exception e)
