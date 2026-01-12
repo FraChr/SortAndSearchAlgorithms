@@ -1,4 +1,4 @@
-﻿namespace SortAndSearch.Sort;
+﻿namespace SortAndSearch.Sort.InsertionSort;
 
 public class InsertionSort : ISortAlgorithm
 {

@@ -1,10 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SortAndSearch.Data;
-using SortAndSearch.Sort;
-using SortAndSearch.Sort.BubbleSort;
-using SortAndSearch.Sort.QuickSort;
-using SortAndSearch.Timer;
+using SortAndSearch.Extentions;
 
 namespace SortAndSearch;
 
@@ -17,16 +13,14 @@ class Program
             .Build();
         
         var services = new ServiceCollection();
-        
-        services.Configure<ListConfig>(configuration.GetSection("ListConfig"));
-        
-        services.AddSingleton<GenerateList>();
-        services.AddSingleton<ISortAlgorithm, QuickSort>();
-        services.AddSingleton<ISortAlgorithm, BubbleSort>();
-        services.AddSingleton<ISortAlgorithm, InsertionSort>();
-        
-        services.AddSingleton<ISortTimer, SortTimer>();
-        services.AddSingleton<App>();
+
+        services
+            .AddListConfig(configuration)
+            .AddListServices()
+            .AddSorting()
+            .AddSearch()
+            .AddTiming()
+            .AddAppServices();
         
         using var provider = services.BuildServiceProvider();
         
