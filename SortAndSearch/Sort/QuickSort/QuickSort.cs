@@ -2,7 +2,7 @@
 
 public class QuickSort : ISortAlgorithm
 {
-    public void Sort(List<int> data)
+    public void Sort(IList<int> data)
     {
         ArgumentNullException.ThrowIfNull(data);
         
@@ -14,7 +14,7 @@ public class QuickSort : ISortAlgorithm
         QSort(data, low, high);
     }
 
-    private void QSort(List<int> data, int low, int high)
+    private void QSort(IList<int> data, int low, int high)
     {
         if (low < high)
         {
@@ -24,7 +24,7 @@ public class QuickSort : ISortAlgorithm
         }
     }
 
-    private int Partition(List<int> data, int low, int high)
+    private int Partition(IList<int> data, int low, int high)
     {
         var pivot = data[high];
         var i = low - 1;

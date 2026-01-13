@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using SortAndSearch.Data;
+﻿using SortAndSearch.Data;
 using SortAndSearch.Search;
 using SortAndSearch.Timer;
 using static SortAndSearch.Utility.Utility;
@@ -26,8 +25,8 @@ public class App
     {
         try
         {
-            /*Console.WriteLine("==========================SORT===========================");
-            RunSort();*/
+            Console.WriteLine("==========================SORT===========================");
+            RunSort();
             Console.WriteLine("==========================SEARCH=========================");
             RunSearch();
         }
@@ -36,12 +35,15 @@ public class App
             Console.Error.WriteLine($"Error: {e.Message}");
             Environment.Exit(-1);
         }
-        
     }
     
     private void RunSort()
     {
+        _timer.StartTimer();
         var data = _generateList.GenerateRandom();
+        _timer.StopTimer();
+
+        Console.WriteLine($"time to generate collection = {_timer.ShowTime()}");
         
         foreach (var sort in _sortAlgorithms)
         {

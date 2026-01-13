@@ -2,5 +2,5 @@
 
 public interface ISortAlgorithm
 {
-    void Sort(List<int> data);
+    void Sort(IList<int> data);
 }

@@ -13,12 +13,23 @@ public class GenerateList
         _config = config.Value;
     }
 
-    public List<int> GenerateRandom()
+    /*public List<int> GenerateRandom()
     {
         var list = new List<int>(_config.Size);
-        for (int i = 0; i < _config.Size; i++)
+        for (var i = 0; i < _config.Size; i++)
         {
             list.Add(_random.Next(_config.MinValue, _config.MaxValue + 1));
+        }
+        return list;
+    }*/
+    
+    public int[] GenerateRandom()
+    {
+        var list = new int[_config.Size];
+        
+        for (var i = 0; i < _config.Size; i++)
+        {
+            list[i] = _random.Next(_config.MinValue, _config.MaxValue + 1);
         }
         return list;
     }

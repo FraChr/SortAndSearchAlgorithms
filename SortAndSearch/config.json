@@ -1,6 +1,6 @@
 ﻿{
   "ListConfig": {
-    "Size": 1000000000,
+    "Size": 100000,
     "MinValue": 1,
     "MaxValue": 1000,
     "SearchTarget": 0

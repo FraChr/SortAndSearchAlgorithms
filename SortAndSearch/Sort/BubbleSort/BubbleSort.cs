@@ -3,7 +3,7 @@
 public class BubbleSort : ISortAlgorithm
 {
 
-public void Sort(List<int> data)
+public void Sort(IList<int> data)
     {
         var n = data.Count;
         

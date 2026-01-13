@@ -2,7 +2,7 @@
 
 public static class Utility
 {
-    public static bool IsSorted(List<int> data)
+    public static bool IsSorted(IList<int> data)
     {
         for (var i = 1; i < data.Count; i++)
             if (data[i] < data[i - 1])

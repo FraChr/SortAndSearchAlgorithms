@@ -2,7 +2,7 @@
 
 public class InsertionSort : ISortAlgorithm
 {
-    public void Sort(List<int> data)
+    public void Sort(IList<int> data)
     {
         for (var i = 1; i < data.Count; i++)
         {
